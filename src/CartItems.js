@@ -82,7 +82,7 @@ function CartItems() {
             <th scope="col">price</th>
             <th scope="col">days</th>
             <th scope="col">Total Hours</th>
-            <th scope="col">quantity</th>
+            <th scope="col text-center">quantity</th>
             <th scope="col">Total</th>
           </tr>
         </thead>
@@ -96,24 +96,26 @@ function CartItems() {
                   <Calender id={item._id} ></Calender>
                 </td>
                 <td>{item.hours}</td>
-                <td>
-                  <button
-                    className="me-3 btn btn-warning"
+                <td >
+                  <div className="row">
+                  <div className="col-lg-2"><button
+                    className="me-3 btn btn-warning rounded-circle"
                     onClick={() => {
                       addItems(item._id);
                     }}
                   >
                     +
-                  </button>
-                  <span>{item.quantity}</span>
-                  <button
-                    className="ml-3 btn btn-warning"
+                  </button></div>
+                  <div className="text-center col-lg-3"><span>{item.quantity}</span></div>
+                  <div className="col-lg-2"><button
+                    className="ml-3 btn btn-warning rounded-circle"
                     onClick={() => {
                       removeItems(item._id);
                     }}
                   >
                     -
-                  </button>
+                  </button></div>
+                  </div> 
                 </td>
                 <td>{item.price * item.quantity*item.hours}</td>
               </tr>
