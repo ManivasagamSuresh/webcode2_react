@@ -9,6 +9,9 @@ import Calender from "./Calender";
 function CartItems() {
   const cartitems = useContext(UserContext);
   let a = cartitems.CartItems;
+
+
+
   let addItems = (id) => {
     console.log(id);
     let index = a.findIndex((cart) => cart._id == id);
@@ -30,9 +33,45 @@ function CartItems() {
   // console.log(cartitems);
 
   var total = cartitems.CartItems.reduce((acc, curr) => {
-    return (acc = acc + curr.price * curr.quantity);
+    return (acc = acc + curr.price * curr.quantity *curr.hours);
   }, 0);
   
+
+  const [amount,setAmount]=useState();
+
+  const finalOrder=(e)=>{
+    
+    setAmount(total);
+    console.log(amount);
+    e.preventDefault();
+    if(total==""){alert("please add items to cart")}
+    else{
+      var options = {
+        key :"rzp_test_LclmW435wRbISo",
+        key_secret:"USe8Ksd02FiuTSx8FDZ10vVY",
+        amount: total *100,
+        currency: "INR",
+        name:"webcode",
+        description:"testing purpose",
+        handler : function(response){
+          alert(response.razorpay_payment_id)
+        },
+        prefill:{
+          name:"manivasagam",
+          email:"s.kishore123.64@gmail.com",
+          contact:"9566991210"
+        },
+        notes:{
+          address:"Razor Corporate office"
+        },
+        theme : {
+          color:"#3399cc"
+        }
+      };
+      var pay = new window.Razorpay(options);
+      pay.open();
+    }
+  }
 
   return (
     <div className="container">
@@ -83,8 +122,8 @@ function CartItems() {
         </tbody>
       </table>
 
-      <h3>Total Rs = {total}</h3>
-      <button className="btn btn-warning">Place Order</button>
+      <h3  >Total Rs = {total}</h3>
+      <button onClick={finalOrder} className="btn btn-warning">Place Order</button>
     </div>
   );
 }
