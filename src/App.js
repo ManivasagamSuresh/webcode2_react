@@ -2,16 +2,14 @@ import logo from "./logo.svg";
 import "./App.css";
 import "./sb-admin-2.min.css";
 
-import Topbar from "./Topbar";
-// import TopBar1 from "./TopBar1";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Launch from "./Launch";
-import Contact from "./Contact";
+
 import "./style.css"
 import Topbar2 from "./Topbar2";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CartItems from "./CartItems";
-import Profile from "./Profile";
+
 import Products from "./Products";
 
 
