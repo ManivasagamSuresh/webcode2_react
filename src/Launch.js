@@ -11,7 +11,7 @@ function Launch() {
     <div>
         <div className="col-lg-12 align-middle">
     <h1 className="text-center" style={{color:"#FFc40a"}}>Welcome to our Rental Portal</h1>
-    <h6 className="text-center">You can rent the following products</h6>
+    <h6 className="text-center">Make your safe and secure rental here !</h6>
     <p className="text-center" >Products we provide<br/>Dslr Cameras,Action Cameras,Tripods,Projectors
     </p>
 

@@ -6,9 +6,9 @@ import { Config } from "./Config";
 function Contact() {
     const formik = useFormik({
         initialValues:{
-            Name :"Name",
-            Email:"Email",
-            PhNo :"Phone Number",
+            Name :"",
+            Email:"",
+            PhNo :"",
 
         },
         onSubmit:async(values)=>{   
@@ -25,13 +25,14 @@ function Contact() {
             <div class="contact-r">
               <h1 class="display-4">Say Hi</h1>
               <form onSubmit={formik.handleSubmit} >
-                <input type="text" name="Name" onChange={formik.handleChange} value={formik.values.Name} required />
+                <input type="text" name="Name" placeholder="Name" onChange={formik.handleChange} value={formik.values.Name} required />
                 <br />
-                <input type="email" name="Email" onChange={formik.handleChange} value={formik.values.Email} required />
+                <input type="email" name="Email" placeholder="Email"  onChange={formik.handleChange} value={formik.values.Email} required />
                 <br />
                 <input
                   type="text"
                   name="PhNo"
+                  placeholder="Phone Number"
                   onChange={formik.handleChange} value={formik.values.PhNo}
                   required
                 />
