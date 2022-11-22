@@ -1,3 +1,3 @@
 export const Config={
-    api:"http://localhost:3005"
+    api:"https://webcodetwo.herokuapp.com/"
 }
